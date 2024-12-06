@@ -12,8 +12,6 @@ select * from national;
 --QUIZ 4   SAL_GRADE 테이블 모두 조회하기
 select * from sal_grade;
 
-
-
 -- EMPLOYEE 테이블에서 사번(EMP_ID) 이름(EMP_NAME) 급여(SALARY) 조회
 SELECT emp_id, emp_name, salary from employee;
 
@@ -41,13 +39,10 @@ SELECT EMP_ID, EMP_NAME, SALARY,  SALARY * 12 FROM employee;
 
 -- SALAY * 12에 별칭을 붙여서 연봉이라 표기하기
 -- 별명을 붙여 컬럼명이 조회되길 원한다면 AS 별명 을 작성해주면 된다.
-
-
 SELECT EMP_ID, EMP_NAME, SALARY,  SALARY * 12 AS 연봉 FROM employee;
 
 -- employee 테이블에서 EMP_ID AS 직원아이디 , EMP_NAME = 직원이름, SALARY = 월급 으로 표기해서 출력
 SELECT emp_id as 직원아이디 ,  emp_name as 직원이름, salary as 월급 from employee;
-
 
 -- 가짜 테이블을 이용해서 시간 기능 조회하기
 SELECT SYSDATE FROM DUAL;      -- 24/12/04
@@ -71,26 +66,21 @@ SELECT '2024-12-04', TO_DATE('2024-12-04', 'YYYY-MM-DD') FROM DUAL;
 -- EMPLOYEE 에서 모든 사원의 이름, 입사일, 근무 일수(SYSDATE - 입사일) 조회
 SELECT EMP_NAME, HIRE_DATE, SYSDATE - HIRE_DATE FROM EMPLOYEE;
 
-
-
 -- 퇴사여부가 Y 인 사원의 이름과 퇴사일 조회
 SELECT EMP_NAME, ENT_DATE  -- 무엇을 조회할 것인가
 FROM EMPLOYEE              -- 어디서 조회할 것인가
 WHERE ENT_YN = 'Y';        -- 어떤 조건을 걸 것인가
-
 
 -- 보너스가 있는 사원의 이름과 보너스 금액 조회   WEHRE BONUS IS NOT NULL;
 SELECT EMP_NAME, BONUS 
 FROM EMPLOYEE
 WHERE BONUS IS NOT NULL;
 
-
 -- EMPLOYEE 테이블에서 급여가 300만원 이상인 사원의 이름과 급여를 조회
 --  급여 >= 3000000
 SELECT EMP_NAME, SALARY
 FROM EMPLOYEE
 WHERE SALARY >= 3000000;
-
 
 -- DEPARTMENT 테이블에서 LOCATION_ID 가 'L1' 지역에 위치한 부서의 모든 정보 조회
 SELECT *
