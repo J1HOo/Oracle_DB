@@ -392,3 +392,50 @@ SELECT DEPT_CODE,(
 					WHERE EM.DEPT_CODE=ES.DEPT_CODE) AS "평균급여"
 FROM EMPLOYEE EM
 GROUP BY DEPT_CODE;
+
+
+-------------------------------------------------------------------------- 12/13
+
+-- 카페 테이블 모두 조회
+SELECT * FROM CAFE;
+
+-- 카페 테이블에서 카페 이름과 전화번호만 조회
+SELECT CAFE_NAME, CONTACT_NUMBER
+FROM CAFE;
+
+-- 서울 강남구에 위치한 카페 조회
+SELECT CAFE_NAME, LOCATION, CONTACT_NUMBER
+FROM CAFE
+WHERE LOCATION = '서울시 강남구';
+
+-- 서울에 위치한 모든 카페 조회 where like
+SELECT CAFE_NAME, LOCATION, CONTACT_NUMBER
+FROM CAFE
+WHERE  CAFE.LOCATION LIKE '서울%'; -- 서울로 시작하는 카페 조회
+
+SELECT CAFE_NAME, LOCATION, CONTACT_NUMBER
+FROM CAFE
+WHERE CAFE.LOCATION LIKE '%서울%'; -- 서울이 앞 뒤로 단어가 존재하는 카페 조회
+
+-- 구 라는 글자로 끝나는 지역의 카페 조회
+SELECT CAFE_NAME, LOCATION, CONTACT_NUMBER
+FROM CAFE
+WHERE LOCATION LIKE '%구'; -- 구가 가장 마지막에 존재하는 카페 조회
+
+-- 메뉴 조회 MENU
+SELECT * FROM MENU;
+
+-- MENU 테이블에 존재하는 CAFE_ID와 CAFE테이블에 존재하는 CAFE_ID와 서로 일치하는 값으로
+-- 카페 이름, 지역, 번호에 위치하는 카페 메뉴를 조회 할 수 있음
+
+-- 두 테이블 CAFE_ID로 연결지어 모두 조회하기
+SELECT C.CAFE_NAME, C.LOCATION, C.CONTACT_NUMBER, C.CAFE_ID, M.CAFE_ID, M.MENU_NAME, M.DESCRIPTION, M.PRICE
+FROM CAFE C, MENU M -- C, M은 각각 CAFE와 MENU의 약자로 지정
+WHERE C.CAFE_ID = M.CAFE_ID;
+-- WHERE을 작성하지 않아도 테이블 조회하는데 있어 문제는 없지만, 추후 COUNT와 같은 집계 함수를 이용하기 위해 미리 작성해주는 것이 좋다.
+
+-- WHERE 대신 JOIN 사용
+SELECT C.CAFE_NAME, C.LOCATION, C.CONTACT_NUMBER, C.CAFE_ID, M.CAFE_ID, M.MENU_NAME, M.DESCRIPTION, M.PRICE
+FROM CAFE C
+JOIN MENU M 
+ON C.CAFE_ID = M.CAFE_ID;
