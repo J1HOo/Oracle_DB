@@ -1,0 +1,13 @@
+
+(설계도)
+DDL - CREATE ALTER DROP 
+      TRUNCATE 테이블 내의 데이터를 모두 삭제하고 테이블만 유지
+
+(가구배치)
+DML - INSERT UPDATE DELETE
+      DQL - SELECT
+
+(열쇠)
+DCL - GRANT REVOKE
+
+TCL - COMMIT ROLLBACK SAVEPOINT
