@@ -69,14 +69,3 @@ INSERT INTO student (studentname, studentage) VALUES ('김철수', 25);
 SELECT * FROM student;
 
 COMMIT;
-
-
-DELETE FROM STUDENT;
-
-CREATE OR REPLACE TRIGGER trg_user
-BEFORE INSERT ON student
-FOR EACH ROW
-BEGIN
-    -- 시퀀스를 사용해서 student 테이블 내에 studentid 번호를 자동으로 생성
-    :NEW.studentid := seq_user.NEXTVAL;
-END;
