@@ -11,7 +11,8 @@ DROP    테이블, 데이터베이스 객체를 완전히 삭제 (데이터와 �
 
 (가구배치)
 DML - INSERT UPDATE DELETE
-      DQL - SELECT
+
+DQL - SELECT
 
 (열쇠)
 DCL - GRANT REVOKE

@@ -69,3 +69,6 @@ INSERT INTO student (studentname, studentage) VALUES ('김철수', 25);
 SELECT * FROM student;
 
 COMMIT;
+
+
+DELETE FROM STUDENT;
